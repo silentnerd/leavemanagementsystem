@@ -9,16 +9,16 @@ These instructions will get you a copy of the project up and running on your loc
 **Clone the application**
 
 ```bash
-  git clone https://github.com/silentnerd/leavemanagementsytem.git
+  git clone https://github.com/silentnerd/leavemanagementsystem.git
   cd hrms
 ```
 
 ## Steps to Setup the React Front end app (hrms)
 
-First go to the `leavemanagementsytem` folder -
+First go to the `leavemanagementsystem` folder -
 
 ```bash
-cd hrms
+cd leavemanagementsystem
 ```
 
 Then type the following command to install the dependencies and start the application -
@@ -31,7 +31,7 @@ The front-end server will start on port `3000`.
 
 ## Authors
 
-See also the list of [contributors](https://github.com/silentnerd/leavemanagementsytem/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/silentnerd/leavemanagementsystem/contributors) who participated in this project.
 
 ## License
 
