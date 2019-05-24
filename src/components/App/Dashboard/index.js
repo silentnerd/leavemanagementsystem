@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Layout} from 'antd';
 import {Route, Switch} from 'react-router-dom'
-import ApplyLeave from '../../ApplyLeave/ApplyLeave';
+import ApplyLeaveComponent from '../../ApplyLeave/index';
 import CarryForwardRequest from '../../../CarryForwardRequest';
 import LeaveCancelRequest from '../../../LeaveCancelRequest';
 import LeaveHistory from '../../../LeaveHistory';
@@ -44,7 +44,7 @@ import './index.css';
                           <Route path='/signup' component={SignUp}/>
                           <Route path='/forgotpass' component={ForgotPassword}/>
                             <Route  path='/applyleave'>
-                               <ApplyLeave />} />
+                               <ApplyLeaveComponent />
                             </Route>
 
                             <Route path='/carryforwardrequest' component={CarryForwardRequest}/>

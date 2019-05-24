@@ -241,7 +241,7 @@ class ViewCalendar extends React.Component {
                                         open={endOpen}
                                         onOpenChange={this.handleEndOpenChange}/>
                                 </Col>
-                            </Row>
+                            </Row> 
                         </Form.Item>
                         <Row type="flex" justify="space-between">
                             <Col span={8}>
