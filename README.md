@@ -1,4 +1,4 @@
-# Leave Management System (REACT)
+# Leave Management System using Redux
 
 The Leave Management System is a part of Human Resource Management System. It enables the HR department to manage the employees leave.
 
@@ -9,13 +9,13 @@ These instructions will get you a copy of the project up and running on your loc
 **Clone the application**
 
 ```bash
-  git clone https://github.com/silentnerd/hrms.git
+  git clone https://github.com/silentnerd/leavemanagementsytem.git
   cd hrms
 ```
 
 ## Steps to Setup the React Front end app (hrms)
 
-First go to the `hrms` folder -
+First go to the `leavemanagementsytem` folder -
 
 ```bash
 cd hrms
@@ -31,7 +31,7 @@ The front-end server will start on port `3000`.
 
 ## Authors
 
-See also the list of [contributors](https://github.com/silentnerd/hrms/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/silentnerd/leavemanagementsytem/contributors) who participated in this project.
 
 ## License
 
