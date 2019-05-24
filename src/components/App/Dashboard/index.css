@@ -1,0 +1,56 @@
+
+.logo{
+  height: 60px;
+  padding:1em;
+  text-align: center;
+  display:inline-block;
+  text-decoration: none !important;
+  margin:0 auto;
+}
+
+.logo a{
+  margin-top: 15px;
+  margin-left:10px;
+  color:#007bff;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.container-avatar {
+  height: 60px;
+  padding: 1em;
+  text-align: center;
+  display: inline-flex;
+  text-decoration: none !important;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.container-avatar p {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .ant-layout-sider {
+    display: none;
+  }
+}
+
+
+#components-layout-demo-custom-trigger .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff;
+}
+
+#components-layout-demo-custom-trigger .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}

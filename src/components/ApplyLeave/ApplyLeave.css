@@ -1,0 +1,30 @@
+
+@media only screen and (max-width: 1000px) {
+    #responsive-div1 {
+        width: 100%; 
+    }
+
+    #responsive-div2 {
+        width: 100%;
+    }
+
+    #responsive-input1 {
+        width: -webkit-fill-available;
+    }
+
+    #responsive-input2 {
+        width: -webkit-fill-available;
+    }
+
+    #responsive-input3 {
+        width: -webkit-fill-available;
+    }
+
+    #responsive-input4 {
+        width: -webkit-fill-available;
+    }
+
+    #responsive-input5 {
+        width: -webkit-fill-available;
+    }
+}
