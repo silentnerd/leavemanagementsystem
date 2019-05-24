@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ```bash
   git clone https://github.com/silentnerd/leavemanagementsystem.git
-  cd hrms
+  cd leavemanagementsystem
 ```
 
 ## Steps to Setup the React Front end app (hrms)
