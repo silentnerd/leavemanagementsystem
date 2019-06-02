@@ -1,7 +1,7 @@
 import React from 'react';
 import {Breadcrumb, Col, Row} from 'antd';
 import './index.css';
-import ApplyLeave from './applyLeave';
+import ApplyLeave from './ApplyLeave';
 import CarryForwardRequestComponent from './carryForwardRequest';
 import AvailableLeaveComponent from './availableLeave';
 import LeaveHistoryComponent from './leaveHistory';
