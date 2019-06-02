@@ -74,11 +74,11 @@ class ViewLeaveRequest extends React.Component {
   }
 
     componentWillMount() {
-      this.props.getLeaveRequests();
+      this.props.getPendingLeaveRequests();
     }
 
     componentDidMount(){
-      this.props.getLeaveRequests();
+      this.props.getPendingLeaveRequests();
     }
   render() {
    
@@ -107,7 +107,7 @@ const mapStateToProps = (state) => ({
 });
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
-      getLeaveRequests: fetchPendingLeaveRequests
+      getPendingLeaveRequests: fetchPendingLeaveRequests
   }, dispatch);
 }
 export default connect(mapStateToProps, matchDispatchToProps)(ViewLeaveRequest);

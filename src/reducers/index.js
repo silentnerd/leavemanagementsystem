@@ -1,12 +1,13 @@
 import {combineReducers} from 'redux';
 import CollapseSideBarReducer from './reducer-aside-toggle';
 import FetchCancelLeaveRequestsReducer from './reducer-fetchCRL';
-import FetchLeaveRequests from './leave-reducer'
+import FetchLeaveRequestsReducer from './leave-reducer'
 
 const allReducers = combineReducers({
     isCollapsed: CollapseSideBarReducer,
     getCancelLeaveRequests: FetchCancelLeaveRequestsReducer,
-    getPendingLeaveRequestStore:FetchLeaveRequests
+    getPendingLeaveRequestStore:FetchLeaveRequestsReducer,
+    getLeaveRequestStore:FetchLeaveRequestsReducer
 }); 
 
 export default allReducers;

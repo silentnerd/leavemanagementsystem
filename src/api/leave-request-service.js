@@ -31,3 +31,33 @@ export  function fetchPendingLeaveRequests() {
         });
     }
 }
+
+export  function fetchAllLeaveRequests() {
+    return(dispatch) => {
+        dispatch(fetchProductsPending());
+        axios.get(LEAVE_REQUEST_URL).then(function (res) {
+            console.log(res.data)
+            const leaveRequests = [];
+            for (let i = 0; i < res.data.length; i++) {
+                // loop through your data
+                leaveRequests.push({
+                    key:res.data[i].id ,
+                    name:res.data[i].user.fullName,
+                    sdate: res.data[i].startDate,
+                    edate: res.data[i].endDate,
+                    number:res.data[i].noOfDays,
+                    reason:res.data[i].reason,
+                    tags:[res.data[i].leaveTypeValue],
+                });
+            }
+            dispatch(fetchProductsSuccess(leaveRequests));
+            return leaveRequests;
+           
+        })
+        .catch(function (error) {
+            // handle error
+            dispatch(fetchProductsError(error));
+            console.log(error);
+        });
+    }
+}
