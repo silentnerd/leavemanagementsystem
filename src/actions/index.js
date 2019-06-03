@@ -37,4 +37,29 @@ export const fetchProductsError = (error) => {
     }
 };
 
+const LOGIN_USER = 'LOGIN_USER';
+const USER_AUTHENTICATION_SUCCESS = 'USER_AUTHENTICATION_SUCCESS';
+const USER_AUTHENTICATION_ERROR = 'USER_AUTHENTICATION_ERROR';
+
+export const loginUser = (userRequest) => {
+    return {
+        type: LOGIN_USER,
+        userRequest: userRequest
+    }
+};
+
+export const userAuthenticationSuccess = (user) => {
+    return {
+        type: USER_AUTHENTICATION_SUCCESS,
+        user: user
+    }
+};
+
+export const userAuthenticationError = (error) => {
+    return {
+        type: USER_AUTHENTICATION_ERROR,
+        error: error
+    }
+};
+
 
