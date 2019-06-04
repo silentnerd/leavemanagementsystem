@@ -6,7 +6,7 @@ import {Route, Switch} from 'react-router-dom'
 import ApplyLeaveComponent from '../../ApplyLeave/index';
 import CarryForwardRequest from '../../../CarryForwardRequest';
 import LeaveCancelRequest from '../../../LeaveCancelRequest';
-import LeaveHistory from '../../../LeaveHistory';
+import LeaveHistory from '../../../leave-history/LeaveHistory';
 import ViewCalendar from '../../ViewCalendar/ViewCalendar';
 import ViewLeaveRequest from '../../../ViewLeaveRequest';
 import Login from '../../Authentication/Login';
@@ -26,10 +26,7 @@ import './index.css';
         <Route path="/">
           <SiderComponent />
           </Route>
-            
-             
                 <Layout>
-
                   <Route path="/">
                     <HeaderComponent />
                     </Route>
