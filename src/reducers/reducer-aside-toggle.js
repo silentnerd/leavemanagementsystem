@@ -3,7 +3,7 @@ let defaultState = {
 }
 
 export default function(state=defaultState, action) {
-    console.log(action.type);
+    // console.log(action.type);
     switch (action.type) {
         case 'EXPAND_SIDEBAR':
             console.log("In Switch case: isCollapse: false");
