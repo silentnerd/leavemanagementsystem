@@ -9,10 +9,6 @@ import './index.css';
 import App from './components/App/App';
 import 'antd/dist/antd.css'; 
 import * as serviceWorker from './serviceWorker';
-
-
-
-
 // Declare Storage for Application
 const store = createStore(allReducers, applyMiddleware(thunk));
 

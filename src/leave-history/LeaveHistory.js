@@ -134,13 +134,11 @@ class LeaveHistory extends React.Component {
     }else if(activeKey==3){
       this.props.history.push("/leavehistory/rejected");
       this.forceUpdate()
-    }else{
-
     }
- 
   };
 
   render() {
+    console.log(this.props)
     return (
       <React.Fragment>
         <Breadcrumb style={{ margin: '16px 0' }}>
@@ -148,31 +146,21 @@ class LeaveHistory extends React.Component {
           <Breadcrumb.Item>Leave History</Breadcrumb.Item>
         </Breadcrumb>
         <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-
-        <Switch>
-          
-        
+        <Switch> 
           <Tabs activeKey={this.state.activeTab}  onChange={this.changeTab}>
-            <TabPane tab="All Requests" key="1" >
-            {/* <Table columns={allrequests} dataSource={this.props.allLeaveRequests} /> */}
-            <Route exact path="/leavehistory" component={AllLeaveHistory} />
-           
-    </TabPane>
-            <TabPane tab="Accepted" key="2" >
-            {/* <Table columns={accepted}  dataSource={data}/> */}
-            <Route exact path="/leavehistory/accepted" component={AcceptLeaveHistory} />
-           
-    </TabPane>
-     <TabPane tab="Rejected" key="3">
-        
-            <Route path="/leavehistory/rejected" component={RejectLeaveHistory} />
-        
-    </TabPane> 
+              <TabPane tab="All Requests" key="1" >
+                <Route exact path="/leavehistory" component={AllLeaveHistory} />
+              </TabPane>
+              <TabPane tab="Accepted" key="2" >
+                <Route exact path="/leavehistory/accepted" component={AcceptLeaveHistory} />     
+              </TabPane>
+              <TabPane tab="Rejected" key="3">
+                  <Route path="/leavehistory/rejected" component={RejectLeaveHistory} />
+              </TabPane> 
           </Tabs>
-          </Switch>
-        </div>
-
-      </React.Fragment>
+        </Switch>
+      </div>
+    </React.Fragment>
     );
   }
 }

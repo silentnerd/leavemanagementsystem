@@ -63,7 +63,7 @@ componentWillMount() {
 }
 
 componentDidMount(){
-  this.props.getAllRejectLeaveRequests();
+  // this.props.getAllRejectLeaveRequests();
 }
   render() {
     return (

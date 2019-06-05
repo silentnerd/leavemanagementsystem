@@ -1,5 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import moment from 'moment';
+// import {connect} from 'react-redux';
+// import {bindActionCreators} from 'redux';
 import {
     Form,
     Upload,
@@ -13,9 +16,11 @@ import {
     DatePicker
 } from 'antd';
 import './index.css';
+// import { fetchAllLeaveType } from '../../api/APIUtil';
 const InputGroup = Input.Group;
 const {TextArea} = Input;
 const props = Upload;
+const Option = Select.Option;
 
 class ApplyLeaveComponent extends React.Component {
 
@@ -25,12 +30,37 @@ class ApplyLeaveComponent extends React.Component {
             leaveType: [],
             startValue: null,
             endValue: null,
-            noOfDays: ''
+            days: null,
+            leaveRequest:{
+                startDate: null,
+                endDate: null,
+                noOfDays: null,
+                reason:'',
+                leaveTypeValue:null
+            }
+            
         }
+        this.getAllLeaveType = this.getAllLeaveType.bind(this)
     }
+    getAllLeaveType(){
+        // this.state.leaveType.splice(0, this.state.leaveType.length);
+        axios.get("http://localhost:8050/hrm_system/leavetype").then((response) => {
+                      for (let i = 0; i < response.data.length; i++) {
+                          this.state.leaveType.push(<Option key={response.data[i].id}>{response.data[i].leaveTypeValue}</Option>);
+                      }
+                    });
+                    console.log(this.state.leaveType);
+                }
 
-    componentDidMount() {}
-
+   
+          componentDidMount() {
+        }
+        
+        componentWillMount() {
+            this.getAllLeaveType()
+        }
+        
+        
     disabledStartDate = startValue => {
         const startYear = new Date().getFullYear();
         const endYear = moment()
@@ -83,22 +113,24 @@ class ApplyLeaveComponent extends React.Component {
 
     handleEndOpenChange = open => {
         this.setState({endOpen: open});
+        
         if (!this.state.startValue === null) {
-
-            const days = this
-                .state
-                .endValue
-                .diff(this.state.startValue, 'days');
+            console.log(this.state.endOpen)
+            const days = this.state.endValue.diff(this.state.startValue, 'days');
             console.log(days);
             this.setState({noOfDays: '1'});
         }
     };
-
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log(this.state)
+    }
     render() {
         const {startValue, endValue, endOpen} = this.state;
         return (
             <Row>
                 <Col span={24}>
+                    <Form onSubmit={this.handleSubmit}>
                     <InputGroup>
                         <Row gutter={24}>
                             <Col id="responsive-input1" span={6}>
@@ -148,7 +180,9 @@ class ApplyLeaveComponent extends React.Component {
                                 <Form.Item hasFeedback label="Type of Leave" layout='vertical'>
                                     <InputGroup compact>
 
-                                        <Select defaultValue="Type of Leave">
+                                        <Select defaultValue="Type of Leave"
+                                        // value = {this.state.leaveRequest.leaveTypeValue}
+                                        >
                                             {this.state.leaveType}
                                         </Select>
 
@@ -201,7 +235,7 @@ class ApplyLeaveComponent extends React.Component {
                         float: 'right',
                         marginRight: '10px'
                     }}>Clear</Button>
-
+                    </Form>
                 </Col>
             </Row>
 
@@ -209,5 +243,10 @@ class ApplyLeaveComponent extends React.Component {
     }
 
 }
-
-export default ApplyLeaveComponent;
+export default ApplyLeaveComponent
+// function matchDispatchToProps(dispatch) {
+//     return bindActionCreators({
+//       getAllLeaveType: fetchAllLeaveType
+//     }, dispatch);
+//   }
+//   export default connect(matchDispatchToProps)(ApplyLeaveComponent); ;
