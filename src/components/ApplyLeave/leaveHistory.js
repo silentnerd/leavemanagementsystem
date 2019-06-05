@@ -1,109 +1,107 @@
-import React from 'react';
-import moment from 'moment';
-import axios from 'axios';
-import {Table, Tag, Col, Row} from 'antd';
-import './index.css';
+import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { Table, Tag, Col, Row } from "antd";
+import fetchViewMyLeaveHistory from "../../api/view-my-leave-history-service";
 
 const columns = [
-    {
-        title: 'Leave Type',
-        key: 'tags',
-        dataIndex: 'tags',
-        render: tags => (
-            <span>
-                {tags.map(tag => {
-                    let color = tag;
-                    if (tag === 'Medical') {
-                        color = 'volcano';
-                    } else if (tag === 'Annual') {
-                        color = 'green';
-                    } else if (tag === 'Casual') {
-                        color = 'geekblue';
-                    }
+  {
+    title: "Leave Type",
+    key: "tags",
+    dataIndex: "tags",
+    render: tags => (
+      <span>
+        {tags.map(tag => {
+          let color = tag;
+          if (tag === "Medical") {
+            color = "volcano";
+          } else if (tag === "Annual") {
+            color = "green";
+          } else if (tag === "Casual") {
+            color = "geekblue";
+          }
 
-                    return (
-                        <Tag color={color} key={tag}>
-                            {tag.toUpperCase()}
-                        </Tag>
-                    );
-                })}
-            </span>
-        )
-    }, {
-        title: 'Start Date',
-        dataIndex: 'sdate'
-    }, {
-        title: 'End Date',
-        dataIndex: 'edate'
-    }, {
-        title: 'Number of Days',
-        dataIndex: 'number'
-    }, {
-        title: 'Reason',
-        dataIndex: 'reason'
-    }, {
-        title: 'Status',
-        dataIndex: 'status'
-    }
+          return (
+            <Tag color={color} key={tag}>
+              {tag.toUpperCase()}
+            </Tag>
+          );
+        })}
+      </span>
+    )
+  },
+  {
+    title: "Start Date",
+    dataIndex: "sdate"
+  },
+  {
+    title: "End Date",
+    dataIndex: "edate"
+  },
+  {
+    title: "Number of Days",
+    dataIndex: "number"
+  },
+  {
+    title: "Reason",
+    dataIndex: "reason"
+  },
+  {
+    title: "Status",
+    dataIndex: "status"
+  }
 ];
 
-const data = [
-    {
-        key: '1',
-        tags: ['Medical'],
-        sdate: '2019/05/21',
-        edate: '2019/05/22',
-        number: '2',
-        reason: 'Medical',
-        status: '1'
-    }, {
-        key: '2',
-        tags: ['Casual'],
-        sdate: '2019/05/21',
-        edate: '2019/05/23',
-        number: '3',
-        reason: 'Wedding',
-        status: '1'
-    }, {
-        key: '3',
-        tags: ['Annual'],
-        sdate: '2019/05/21',
-        edate: '2019/05/27',
-        number: '7',
-        reason: 'Trip',
-        status: '1'
-    }
-];
+class ViewMyLeaveHistory extends React.Component {
+  constructor(props) {
+    super(props);
 
-class LeaveHistoryComponent extends React.Component {
+    this.shouldComponentRender = this.shouldComponentRender.bind(this);
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            leaveType: [],
-            startValue: null,
-            endValue: null,
-            noOfDays: ''
-        }
-        //this.refreshgetAllLeaveType = this.refreshgetAllLeaveType.bind(this)
-    }
+  shouldComponentRender() {
+    // const {pending} = this.props;
+    if (this.pending === false) return false;
+    // more tests
+    return true;
+  }
 
-    componentDidMount() {}
+  componentWillMount() {
+    this.props.ViewMyLeaveHistory();
+  }
 
-    render() {
-        return (
+  componentDidMount() {
+    this.props.ViewMyLeaveHistory();
+  }
 
-            <Row >
-                <Col span={24}>
-
-                    <Table columns={columns} dataSource={data}/>
-
-                </Col>
-            </Row>
-
-        );
-    }
-
+  render() {
+    return (
+      <Row>
+        <Col span={24}>
+          <Table
+            columns={columns}
+            dataSource={this.props.viewMyLeaveHistoryData}
+          />
+        </Col>
+      </Row>
+    );
+  }
 }
 
-export default LeaveHistoryComponent;
+const mapStateToProps = state => ({
+  error: state.getViewMyLeaveHistoryStore.error,
+  viewMyLeaveHistoryData: state.getViewMyLeaveHistoryStore.viewMyLeaveHistory,
+  pending: state.getViewMyLeaveHistoryStore.pending
+});
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      ViewMyLeaveHistory: fetchViewMyLeaveHistory
+    },
+    dispatch
+  );
+}
+export default connect(
+  mapStateToProps,
+  matchDispatchToProps
+)(ViewMyLeaveHistory);
