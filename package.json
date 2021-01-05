@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.16.6",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "jquery": "^3.4.1",
     "matchmedia-polyfill": "^0.3.2",
     "node-sass": "^4.12.0",
